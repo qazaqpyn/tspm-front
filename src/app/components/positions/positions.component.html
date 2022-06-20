@@ -1,0 +1,43 @@
+<p class="h4 text-center text-white"><span class="badge bg-danger">ADD NEW POSITION</span></p>
+<form (ngSubmit)="createPosition()">
+    <div class="row">
+       <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="form-group">
+               <strong>Name:</strong>
+               <input type="text" name="name" class="form-control" placeholder="Name" [(ngModel)]="position.name">
+           </div>
+       </div>
+       <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="form-group">
+               <strong>Salary:</strong>
+               <input type="salary" class="form-control" name="number" placeholder="salary" [(ngModel)]="position.salary">
+           </div>
+       </div>
+       <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+               <button type="submit" class="btn btn-primary">Submit</button>
+       </div>
+   </div>
+
+</form>
+<br>
+<br>
+<p class="h4 text-center text-white"><span class="badge bg-success">POSITIONS</span></p>
+<table class="table table-bordered">
+   <tr>
+       <th>ID</th>
+       <th>Name</th>
+       <th>Salary</th>
+       <th width="170px">Action</th>
+   </tr>
+   <tr *ngFor="let position of positions" >
+       <td>{{ position.id }}</td>
+       <td>{{ position.name }}</td>
+       <td>{{ position.salary }}</td>
+       <td>
+           <form action="" method="POST">
+               <a class="btn btn-primary" routerLink="edit/{{position.id}}">Edit</a>
+               <button type="submit" class="btn btn-danger" (click)="deletePosition(position.id)">Delete</button>
+           </form>
+       </td>
+   </tr>
+</table>

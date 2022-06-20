@@ -1,0 +1,21 @@
+<p class="h4 text-center text-white"><span class="badge bg-warning">EDIT POSITION</span></p>
+<form (ngSubmit)="updatePosition()">
+    <div class="row">
+       <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="form-group">
+               <strong>Name:</strong>
+               <input type="text" name="name" class="form-control" placeholder="Name" [(ngModel)]="position.name">
+           </div>
+       </div>
+       <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="form-group">
+               <strong>Salary:</strong>
+               <input type="salary" class="form-control" name="number" placeholder="salary" [(ngModel)]="position.salary">
+           </div>
+       </div>
+       <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+               <button type="submit" class="btn btn-success">Submit</button>
+       </div>
+   </div>
+
+</form>

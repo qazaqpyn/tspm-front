@@ -1,0 +1,29 @@
+<p class="h4 text-center text-white"><span class="badge bg-warning">EDIT USER</span></p>
+<form (ngSubmit)="updateUser()">
+    <div class="row">
+       <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="form-group">
+               <strong>Name:</strong>
+               <input type="text" name="name" class="form-control" placeholder="Name" [(ngModel)]="user.name">
+           </div>
+       </div>
+       <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="form-group">
+               <strong>Email:</strong>
+               <input type="email" class="form-control" name="email" placeholder="email" [(ngModel)]="user.email">
+           </div>
+       </div>
+       <div class="col-xs-12 col-sm-12 col-md-12">
+           <div class="form-group">
+               <strong>Position:</strong>
+               <select class="form-control" name="position_id" id="position_id" [(ngModel)]="user.position_id">  
+                   <option *ngFor="let position of positions" value="{{position.id}}">{{position.name}}</option>
+               </select>
+           </div>
+       </div>
+       <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+               <button type="submit" class="btn btn-success">Submit</button>
+       </div>
+   </div>
+
+</form>

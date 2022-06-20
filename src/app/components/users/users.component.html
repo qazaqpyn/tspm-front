@@ -1,0 +1,53 @@
+<p class="h4 text-center text-white"><span class="badge bg-danger">ADD NEW USER</span></p>
+<form (ngSubmit)="createUser()">
+     <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Name:</strong>
+                <input type="text" name="name" class="form-control" placeholder="Name" [(ngModel)]="user.name">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Email:</strong>
+                <input type="email" class="form-control" name="email" placeholder="email" [(ngModel)]="user.email">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Position:</strong>
+                <select class="form-control" name="position_id" id="position_id" [(ngModel)]="user.position_id">    
+                    <option *ngFor="let position of positions"  value="{{position.id}}">{{position.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+
+</form>
+<br>
+<br>
+<p class="h4 text-center text-white"><span class="badge bg-success">USERS</span></p>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Position</th>
+        <th width="170px">Action</th>
+    </tr>
+    <tr *ngFor="let user of users" >
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.position }}</td>
+        <td>
+            <form action="" method="POST">
+                <a class="btn btn-primary" routerLink="edit/{{user.id}}">Edit</a>
+                <button type="submit" class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
